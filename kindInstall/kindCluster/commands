@@ -1,0 +1,34 @@
+kind create cluster --name learning-k8s --config kind-config.yaml
+kubectl config get-contexts
+kubectl cluster-info
+kubectl get node
+kubectl config use-context kind-learning-k8s
+kubectl get pods -n kube-system
+
+--view namespace 
+kubectl get ns
+kubectl get namespace
+
+--create the namespace
+kubectl create ns nginx
+
+
+--running pods default namespace 
+kubectl run nginx --image=nginx
+
+--getting pods 
+kubectl get pods
+
+--deleting pods from default namespace
+kubectl delete pod nginx
+
+--creating pod in nginx namespace
+kubectl run nginx --image=nginx:latest -n nginx
+
+--inside the pod
+kubectl exec -it my-nginx -n nginx -- /bin/bash
+
+--If you want to set nginx as the default namespace for the current context:
+kubectl config set-context --current --namespace=nginx
+
+
